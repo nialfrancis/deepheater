@@ -1,49 +1,63 @@
-<!DOCTYPE html><html><head>
-<title>Deep Heater</title>
-<link rel="stylesheet" href="https://nialfrancis.tech/assets/css/font-awesome.min.css">
-<style>
-body {
-	background: linear-gradient(-45deg, #ee7752, #e73c7e, #177191, #969e28);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-	height: 50vh;
-}
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-img {
-	position: absolute;
-	top: 40%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	max-width: 100%;
-	height: auto;
-}
-.fa {
-	position: absolute;
-	transform: translate(-50%, -50%);
-	top: 75%;
-}
-.fa-soundcloud {
-	left: 35%;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deep Heater — Heater House</title>
+  <meta name="description" content="Heater House — Deep house music by DJ St. Francis. Listen on SoundCloud and Mixcloud.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Animated background layers -->
+  <div class="bg-layer bg-layer--1"></div>
+  <div class="bg-layer bg-layer--2"></div>
+  <div class="bg-layer bg-layer--3"></div>
 
-.fa-mixcloud {
-	left: 65%;
-}
-a {
-	color: inherit;
-}
-</style></head>
-<img src="HEATER-HOUSE-10-10-2023.png">
-<a href="https://soundcloud.com/djstfrancis"><i class="fa fa-soundcloud fa-5x"></i></a>
-<a href="https://www.mixcloud.com/djstfrancis"><i class="fa fa-mixcloud fa-5x"></i></a>
-</body></html>
+  <!-- Floating particles -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Audio visualizer bars -->
+  <div class="visualizer" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <!-- Main content -->
+  <main class="hero" id="hero">
+    <div class="hero__glow"></div>
+
+    <div class="hero__logo-wrap">
+      <img
+        src="HEATER-HOUSE-10-10-2023.png"
+        alt="Heater House logo"
+        class="hero__logo"
+        id="logo"
+      >
+    </div>
+
+    <p class="hero__tagline">Deep House by St. Francis</p>
+
+    <nav class="socials" aria-label="Social links">
+      <a href="https://soundcloud.com/djstfrancis" class="socials__link" id="soundcloud-link" target="_blank" rel="noopener noreferrer" aria-label="SoundCloud">
+        <svg class="socials__icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M11.56 8.87V17h8.76c1.85 0 3.35-1.51 3.35-3.36 0-1.86-1.5-3.37-3.35-3.37-.36 0-.71.06-1.04.16C18.89 7.97 16.82 6 14.28 6c-1.07 0-2.06.38-2.84 1.01-.14.12-.18.3-.18.47v1.39zM10.13 9.75v7.25h.79V9.44c-.28.08-.54.18-.79.31zm-1.57 1.09v6.16h.79V10.3c-.29.14-.55.33-.79.54zm-1.58 1.47v4.69h.79v-5.04c-.26.27-.5.58-.72.91l-.07.13v-.69zm-1.57 1.27v3.42h.79v-3.85c-.17.24-.38.59-.57.9l-.22.39v.14zm-1.58.88v2.54h.79v-2.95c-.2.24-.41.53-.59.78l-.2.27v.36zm-1.57.88v1.66h.79v-1.98c-.28.13-.54.29-.79.32z"/>
+        </svg>
+        <span class="socials__label">SoundCloud</span>
+      </a>
+      <a href="https://www.mixcloud.com/djstfrancis" class="socials__link" id="mixcloud-link" target="_blank" rel="noopener noreferrer" aria-label="Mixcloud">
+        <svg class="socials__icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M2.462 8.596a.248.248 0 0 0-.247.25v6.308c0 .138.11.25.247.25h.71a.248.248 0 0 0 .247-.25V8.846a.248.248 0 0 0-.247-.25h-.71zm2.74-.83a.248.248 0 0 0-.247.25v6.969c0 .138.11.25.247.25h.71a.248.248 0 0 0 .247-.25V8.016a.248.248 0 0 0-.247-.25h-.71zm2.74 1.476a.248.248 0 0 0-.247.25v5.016c0 .138.11.25.247.25h.71a.248.248 0 0 0 .247-.25V9.492a.248.248 0 0 0-.247-.25h-.71zm2.74-2.242a.248.248 0 0 0-.247.25v9.5c0 .138.11.25.247.25h.71a.248.248 0 0 0 .247-.25V7.25a.248.248 0 0 0-.247-.25h-.71zm2.74 3.148a.248.248 0 0 0-.247.25v2.204c0 .138.11.25.247.25h.71a.248.248 0 0 0 .247-.25v-2.204a.248.248 0 0 0-.247-.25h-.71zm2.74-1.652a.248.248 0 0 0-.247.25v5.508c0 .138.11.25.247.25h.71a.248.248 0 0 0 .247-.25V8.746a.248.248 0 0 0-.247-.25h-.71zm2.74-.576a.248.248 0 0 0-.247.25v6.66c0 .138.11.25.247.25h.71a.248.248 0 0 0 .247-.25V8.17a.248.248 0 0 0-.247-.25h-.71zm2.74 1.652a.248.248 0 0 0-.247.25v3.356c0 .138.11.25.247.25h.71a.248.248 0 0 0 .247-.25v-3.356a.248.248 0 0 0-.247-.25h-.71z"/>
+        </svg>
+        <span class="socials__label">Mixcloud</span>
+      </a>
+    </nav>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
